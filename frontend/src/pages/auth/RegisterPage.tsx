@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { UserPlus } from 'lucide-react';
+import { Eye, EyeOff, Building2, ShoppingBag, Store } from 'lucide-react';
 
 export function RegisterPage() {
   const { register } = useAuth();
   const [form, setForm] = useState({
-    email: '', password: '', nom: '', telephone: '',
+    email: '',
+    password: '',
+    nom: '',
+    telephone: '',
     role: 'ACHETEUR' as 'VENDEUR' | 'ACHETEUR',
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -23,78 +27,144 @@ export function RegisterPage() {
     try {
       await register(form);
     } catch (err: any) {
-      setError(err?.response?.data?.error || 'Erreur lors de l\'inscription');
+      setError(err?.response?.data?.error || "Erreur lors de l'inscription");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-8">
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
-        <div className="flex items-center gap-3 mb-8">
-          <div className="bg-blue-600 p-2 rounded-lg">
-            <UserPlus className="text-white" size={24} />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-gray-800">Inscription</h1>
-            <p className="text-gray-500 text-sm">Créez votre compte IMMO SAAS</p>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-lg hover:bg-blue-800 transition-colors"
+          >
+            <Building2 size={20} />
+            IMMO<span className="font-light text-blue-300">SAAS</span>
+          </Link>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Je suis</label>
-            <select
-              name="role"
-              value={form.role}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none bg-white"
-            >
-              <option value="ACHETEUR">Acheteur — je veux enchérir</option>
-              <option value="VENDEUR">Vendeur — je veux mettre en vente</option>
-            </select>
-          </div>
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <h1 className="text-2xl font-bold text-gray-800 mb-1">Créer un compte</h1>
+          <p className="text-gray-500 text-sm mb-6">Rejoignez la plateforme IMMO SAAS</p>
 
-          {[
-            { name: 'nom', label: 'Nom complet', type: 'text', placeholder: 'Votre nom' },
-            { name: 'email', label: 'Email', type: 'email', placeholder: 'votre@email.com' },
-            { name: 'password', label: 'Mot de passe (min 8 caractères)', type: 'password', placeholder: '••••••••' },
-            { name: 'telephone', label: 'Téléphone (optionnel)', type: 'tel', placeholder: '06xxxxxxxx' },
-          ].map(({ name, label, type, placeholder }) => (
-            <div key={name}>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Role selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Je suis</label>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { value: 'ACHETEUR', label: 'Acheteur', desc: 'Je veux enchérir', Icon: ShoppingBag },
+                  { value: 'VENDEUR', label: 'Vendeur', desc: 'Je veux vendre', Icon: Store },
+                ].map(({ value, label, desc, Icon }) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setForm({ ...form, role: value as 'ACHETEUR' | 'VENDEUR' })}
+                    className={`flex flex-col items-center gap-1.5 p-4 rounded-xl border-2 transition-all ${
+                      form.role === value
+                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                        : 'border-gray-200 text-gray-500 hover:border-gray-300'
+                    }`}
+                  >
+                    <Icon size={22} />
+                    <span className="font-semibold text-sm">{label}</span>
+                    <span className="text-xs opacity-70">{desc}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">Nom complet</label>
               <input
-                type={type}
-                name={name}
-                value={form[name as keyof typeof form]}
+                type="text"
+                name="nom"
+                required
+                value={form.nom}
                 onChange={handleChange}
-                required={name !== 'telephone'}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none"
-                placeholder={placeholder}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                placeholder="Votre nom"
               />
             </div>
-          ))}
 
-          {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-lg text-sm">
-              {error}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={form.email}
+                onChange={handleChange}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                placeholder="votre@email.com"
+              />
             </div>
-          )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
-          >
-            {loading ? 'Inscription...' : 'Créer mon compte'}
-          </button>
-        </form>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                Mot de passe{' '}
+                <span className="text-gray-400 font-normal">(min. 8 caractères)</span>
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  required
+                  value={form.password}
+                  onChange={handleChange}
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-11 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+            </div>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
-          Déjà inscrit ?{' '}
-          <Link to="/login" className="text-blue-600 hover:underline font-medium">Se connecter</Link>
-        </p>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                Téléphone{' '}
+                <span className="text-gray-400 font-normal">(optionnel)</span>
+              </label>
+              <input
+                type="tel"
+                name="telephone"
+                value={form.telephone}
+                onChange={handleChange}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                placeholder="06xxxxxxxx"
+              />
+            </div>
+
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
+                {error}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-sm"
+            >
+              {loading ? 'Création en cours...' : 'Créer mon compte'}
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-gray-500 mt-6">
+            Déjà inscrit ?{' '}
+            <Link to="/login" className="text-blue-600 hover:underline font-medium">
+              Se connecter
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
