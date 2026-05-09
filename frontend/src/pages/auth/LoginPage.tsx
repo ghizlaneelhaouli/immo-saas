@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { Eye, EyeOff, Building2 } from 'lucide-react';
@@ -25,15 +25,15 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-lg hover:bg-blue-800 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary-700 text-white px-4 py-2 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors"
           >
             <Building2 size={20} />
-            IMMO<span className="font-light text-blue-300">SAAS</span>
+            IMMO<span className="font-light text-primary-300">SAAS</span>
           </Link>
         </div>
 
@@ -49,7 +49,7 @@ export function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
                 placeholder="votre@email.com"
               />
             </div>
@@ -62,7 +62,7 @@ export function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-11 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-11 bg-gray-50 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
                   placeholder="••••••••"
                 />
                 <button
@@ -84,7 +84,7 @@ export function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-sm mt-1"
+              className="w-full bg-primary-600 text-white py-3 rounded-xl font-medium hover:bg-primary-700 disabled:opacity-50 transition-colors shadow-sm mt-1"
             >
               {loading ? 'Connexion en cours...' : 'Se connecter'}
             </button>
@@ -92,7 +92,7 @@ export function LoginPage() {
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Pas encore de compte ?{' '}
-            <Link to="/register" className="text-blue-600 hover:underline font-medium">
+            <Link to="/register" className="text-primary-600 hover:underline font-medium">
               Créer un compte
             </Link>
           </p>

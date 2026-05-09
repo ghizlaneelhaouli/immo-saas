@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Upload, AlertCircle } from 'lucide-react';
 
 interface Props {
@@ -27,7 +27,7 @@ export function ProductForm({ onSubmit, loading }: Props) {
           required
           value={titre}
           onChange={(e) => setTitre(e.target.value)}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 outline-none"
           placeholder="Ex: Villa 5 pièces à Marrakech"
         />
       </div>
@@ -38,7 +38,7 @@ export function ProductForm({ onSubmit, loading }: Props) {
           rows={4}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 outline-none resize-none"
           placeholder="Décrivez votre bien..."
         />
       </div>
@@ -52,7 +52,7 @@ export function ProductForm({ onSubmit, loading }: Props) {
           step="0.01"
           value={prixBase}
           onChange={(e) => setPrixBase(e.target.value)}
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 outline-none"
           placeholder="Ex: 500000"
         />
         {showFraisWarning && (
@@ -67,7 +67,7 @@ export function ProductForm({ onSubmit, loading }: Props) {
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Photos (max 5 images, 5MB chacune)</label>
-        <label className="flex items-center gap-2 border-2 border-dashed border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-400 transition-colors">
+        <label className="flex items-center gap-2 border-2 border-dashed border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary-400 transition-colors">
           <Upload size={20} className="text-gray-400" />
           <span className="text-gray-500 text-sm">Cliquer pour sélectionner des images</span>
           <input
@@ -86,7 +86,7 @@ export function ProductForm({ onSubmit, loading }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full bg-primary-600 text-white py-2.5 rounded-lg font-medium hover:bg-primary-700 disabled:opacity-50 transition-colors"
       >
         {loading ? 'Envoi en cours...' : 'Soumettre le produit'}
       </button>
