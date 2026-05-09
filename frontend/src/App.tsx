@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+﻿import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -27,7 +27,7 @@ function NotFoundPage() {
       <p className="text-gray-400 text-sm mb-8">Cette page n'existe pas ou a été déplacée.</p>
       <Link
         to="/"
-        className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors"
+        className="bg-primary-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-primary-700 transition-colors"
       >
         Retour au catalogue
       </Link>

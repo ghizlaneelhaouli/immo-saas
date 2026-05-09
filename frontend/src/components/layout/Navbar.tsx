@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import { LogOut, Package, Gavel, ShieldCheck, Menu, X, Building2 } from 'lucide-react';
@@ -20,8 +20,8 @@ export function Navbar() {
   const linkClass = (path: string) =>
     `transition-colors text-sm ${
       isActive(path)
-        ? 'text-white font-semibold underline underline-offset-4 decoration-blue-300'
-        : 'text-blue-100 hover:text-white'
+        ? 'text-white font-semibold underline underline-offset-4 decoration-primary-300'
+        : 'text-primary-100 hover:text-white'
     }`;
 
   const initials = user?.nom
@@ -29,13 +29,13 @@ export function Navbar() {
     : '?';
 
   return (
-    <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-primary-800 to-primary-600 text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 font-bold text-xl shrink-0">
-            <Building2 size={22} className="text-blue-200" />
-            <span>IMMO<span className="font-light text-blue-300">SAAS</span></span>
+            <Building2 size={22} className="text-primary-200" />
+            <span>IMMO<span className="font-light text-primary-300">SAAS</span></span>
           </Link>
 
           {/* Desktop nav */}
@@ -47,7 +47,7 @@ export function Navbar() {
                 <Link to="/login" className={linkClass('/login')}>Connexion</Link>
                 <Link
                   to="/register"
-                  className="bg-white text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors"
+                  className="bg-white text-primary-700 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-primary-50 transition-colors"
                 >
                   Inscription
                 </Link>
@@ -61,7 +61,7 @@ export function Navbar() {
                 </Link>
                 <Link
                   to="/vendeur/soumettre"
-                  className="bg-white text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors"
+                  className="bg-white text-primary-700 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-primary-50 transition-colors"
                 >
                   + Soumettre
                 </Link>
@@ -84,17 +84,17 @@ export function Navbar() {
             )}
 
             {user && (
-              <div className="flex items-center gap-3 ml-2 pl-4 border-l border-blue-500">
+              <div className="flex items-center gap-3 ml-2 pl-4 border-l border-primary-500">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 border-2 border-blue-300 flex items-center justify-center text-xs font-bold">
+                  <div className="w-8 h-8 rounded-full bg-primary-500 border-2 border-primary-300 flex items-center justify-center text-xs font-bold">
                     {initials}
                   </div>
-                  <span className="text-blue-100 text-xs max-w-[100px] truncate">{user.nom}</span>
+                  <span className="text-primary-100 text-xs max-w-[100px] truncate">{user.nom}</span>
                 </div>
                 <button
                   onClick={handleLogout}
                   title="Déconnexion"
-                  className="text-blue-200 hover:text-red-300 transition-colors"
+                  className="text-primary-200 hover:text-red-300 transition-colors"
                 >
                   <LogOut size={16} />
                 </button>
@@ -104,7 +104,7 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-blue-700 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-primary-700 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
@@ -115,7 +115,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-blue-800 border-t border-blue-700 px-4 py-3 space-y-1">
+        <div className="md:hidden bg-primary-800 border-t border-primary-700 px-4 py-3 space-y-1">
           <MobileLink to="/" onClick={() => setMobileOpen(false)}>Catalogue</MobileLink>
 
           {!user && (
@@ -144,12 +144,12 @@ export function Navbar() {
           )}
 
           {user && (
-            <div className="border-t border-blue-700 pt-3 mt-2 flex items-center justify-between">
+            <div className="border-t border-primary-700 pt-3 mt-2 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-blue-500 border border-blue-300 flex items-center justify-center text-xs font-bold">
+                <div className="w-7 h-7 rounded-full bg-primary-500 border border-primary-300 flex items-center justify-center text-xs font-bold">
                   {initials}
                 </div>
-                <span className="text-blue-200 text-sm">{user.nom}</span>
+                <span className="text-primary-200 text-sm">{user.nom}</span>
               </div>
               <button
                 onClick={handleLogout}
@@ -170,7 +170,7 @@ function MobileLink({ to, onClick, children }: { to: string; onClick: () => void
     <Link
       to={to}
       onClick={onClick}
-      className="block py-2.5 px-3 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm"
+      className="block py-2.5 px-3 rounded-lg text-primary-100 hover:bg-primary-700 hover:text-white transition-colors text-sm"
     >
       {children}
     </Link>

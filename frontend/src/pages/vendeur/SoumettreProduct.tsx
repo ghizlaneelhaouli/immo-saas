@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { productApi } from '../../api/productApi';
 import { ProductForm } from '../../components/product/ProductForm';
 import { CheckCircle, AlertCircle } from 'lucide-react';
@@ -50,7 +50,7 @@ export function SoumettreProduct() {
 
           <a
             href="/vendeur/mes-produits"
-            className="inline-block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700"
+            className="inline-block bg-primary-600 text-white px-6 py-2.5 rounded-lg hover:bg-primary-700"
           >
             Voir mes produits
           </a>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { productApi } from '../../api/productApi';
 import { ProductCard } from '../../components/product/ProductCard';
@@ -25,16 +25,16 @@ export function CataloguePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white">
+      <div className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-600 text-white">
         <div className="max-w-7xl mx-auto px-4 py-14">
-          <div className="flex items-center gap-2 text-blue-300 text-sm mb-3 font-medium">
+          <div className="flex items-center gap-2 text-primary-300 text-sm mb-3 font-medium">
             <Building2 size={16} />
             Enchères immobilières en ligne
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
             Trouvez le bien<br />de vos rêves
           </h1>
-          <p className="text-blue-200 text-lg mb-8 max-w-lg">
+          <p className="text-primary-200 text-lg mb-8 max-w-lg">
             Participez aux enchères en temps réel et sécurisez votre prochain bien immobilier.
           </p>
 
@@ -46,7 +46,7 @@ export function CataloguePage() {
               placeholder="Rechercher un bien immobilier..."
               value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(0); }}
-              className="w-full bg-white text-gray-800 rounded-xl pl-11 pr-4 py-3.5 shadow-lg focus:ring-2 focus:ring-blue-300 outline-none text-sm"
+              className="w-full bg-white text-gray-800 rounded-xl pl-11 pr-4 py-3.5 shadow-lg focus:ring-2 focus:ring-primary-300 outline-none text-sm"
             />
           </div>
 
@@ -54,18 +54,18 @@ export function CataloguePage() {
           {!isLoading && (
             <div className="mt-10 flex items-center gap-8 flex-wrap">
               <div className="flex items-center gap-2 text-sm">
-                <Building2 size={18} className="text-blue-300" />
+                <Building2 size={18} className="text-primary-300" />
                 <span className="font-bold text-2xl">{totalElements}</span>
-                <span className="text-blue-300">biens</span>
+                <span className="text-primary-300">biens</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <TrendingUp size={18} className="text-green-400" />
                 <span className="font-bold text-2xl">{activeCount}</span>
-                <span className="text-blue-300">enchères actives</span>
+                <span className="text-primary-300">enchères actives</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <Users size={18} className="text-blue-300" />
-                <span className="text-blue-300">Mises à jour en temps réel</span>
+                <Users size={18} className="text-primary-300" />
+                <span className="text-primary-300">Mises à jour en temps réel</span>
               </div>
             </div>
           )}
@@ -102,7 +102,7 @@ export function CataloguePage() {
             {search && (
               <p className="text-sm text-gray-400 mt-1">
                 Essayez avec d'autres mots-clés ou{' '}
-                <button onClick={() => setSearch('')} className="text-blue-600 hover:underline">
+                <button onClick={() => setSearch('')} className="text-primary-600 hover:underline">
                   effacez la recherche
                 </button>
               </p>

@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+﻿import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { productApi } from '../../api/productApi';
 import { enchereApi } from '../../api/enchereApi';
@@ -101,7 +101,7 @@ export function ProductDetailPage() {
           <h1 className="text-2xl font-bold text-gray-800">{produit.titre}</h1>
           <p className="text-gray-600">{produit.description}</p>
 
-          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 space-y-2">
+          <div className="bg-primary-50 border border-primary-100 rounded-xl p-4 space-y-2">
             <div className="flex justify-between">
               <span className="text-gray-500">Prix de base</span>
               <span className="font-semibold">{produit.prixBase?.toLocaleString('fr-MA')} DH</span>
@@ -140,7 +140,7 @@ export function ProductDetailPage() {
               <button
                 onClick={() => inscrisMutation.mutate(produitId)}
                 disabled={inscrisMutation.isPending}
-                className="w-full flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 py-2.5 rounded-lg font-medium hover:bg-blue-50 disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 border-2 border-primary-600 text-primary-600 py-2.5 rounded-lg font-medium hover:bg-primary-50 disabled:opacity-50"
               >
                 <Gavel size={18} />
                 {inscrisMutation.isPending ? 'Inscription...' : 'S\'inscrire à l\'enchère'}
@@ -159,7 +159,7 @@ export function ProductDetailPage() {
 
           {!user && (
             <p className="text-center text-sm text-gray-500">
-              <a href="/login" className="text-blue-600 hover:underline">Connectez-vous</a> pour participer à l'enchère.
+              <a href="/login" className="text-primary-600 hover:underline">Connectez-vous</a> pour participer à l'enchère.
             </p>
           )}
         </div>

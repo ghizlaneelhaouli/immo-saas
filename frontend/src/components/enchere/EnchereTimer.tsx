@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { parseISO, differenceInSeconds } from 'date-fns';
 import { Clock } from 'lucide-react';
 
@@ -25,7 +25,7 @@ export function EnchereTimer({ dateFin }: Props) {
   const expired = secondes === 0;
 
   return (
-    <div className={`flex items-center gap-2 font-mono text-lg font-bold ${expired ? 'text-red-600' : 'text-blue-700'}`}>
+    <div className={`flex items-center gap-2 font-mono text-lg font-bold ${expired ? 'text-red-600' : 'text-primary-700'}`}>
       <Clock size={20} />
       {expired
         ? 'Enchère terminée'
