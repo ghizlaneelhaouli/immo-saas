@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { productApi } from '../../api/productApi';
 import { ProductForm } from '../../components/product/ProductForm';
 import { CheckCircle, AlertCircle } from 'lucide-react';
@@ -50,7 +50,7 @@ export function SoumettreProduct() {
 
           <a
             href="/vendeur/mes-produits"
-            className="inline-block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700"
+            className="inline-block bg-primary-600 text-white px-6 py-2.5 rounded-lg hover:bg-primary-700"
           >
             Voir mes produits
           </a>
@@ -62,7 +62,7 @@ export function SoumettreProduct() {
   return (
     <div className="max-w-2xl mx-auto py-8 px-4">
       <h1 className="text-2xl font-bold text-gray-800 mb-2">Soumettre un produit</h1>
-      <p className="text-gray-500 mb-8">Soumettez votre bien immobilier pour le mettre aux enchères.</p>
+      <p className="text-gray-500 mb-8">Proposez un objet vintage aux enchères Fynd.</p>
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">

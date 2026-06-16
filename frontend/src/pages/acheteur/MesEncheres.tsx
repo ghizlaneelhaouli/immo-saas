@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+﻿import { useQuery } from '@tanstack/react-query';
 import { enchereApi } from '../../api/enchereApi';
 import { Link } from 'react-router-dom';
 import { Gavel, TrendingUp, Clock, ArrowRight } from 'lucide-react';
@@ -17,8 +17,8 @@ export function MesEncheres() {
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-6 flex items-center gap-3">
-          <div className="p-2.5 bg-blue-100 rounded-xl">
-            <Gavel className="text-blue-600" size={24} />
+          <div className="p-2.5 bg-primary-100 rounded-xl">
+            <Gavel className="text-primary-600" size={24} />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-800">Mes enchères</h1>
@@ -38,16 +38,16 @@ export function MesEncheres() {
 
         {!isLoading && (!data || data.length === 0) && (
           <div className="text-center py-20">
-            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-4">
-              <Gavel size={28} className="text-blue-300" />
+            <div className="w-16 h-16 rounded-full bg-primary-50 flex items-center justify-center mx-auto mb-4">
+              <Gavel size={28} className="text-primary-300" />
             </div>
             <p className="text-lg font-medium text-gray-600">Aucune enchère en cours</p>
             <p className="text-gray-400 text-sm mt-1 mb-6">
               Parcourez le catalogue et inscrivez-vous à une enchère
             </p>
             <Link
-              to="/"
-              className="bg-blue-600 text-white px-6 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-sm font-medium"
+              to="/catalogue"
+              className="bg-primary-600 text-white px-6 py-2.5 rounded-xl hover:bg-primary-700 transition-colors text-sm font-medium"
             >
               Explorer le catalogue
             </Link>
@@ -88,14 +88,14 @@ export function MesEncheres() {
                     </span>
                   )}
                   {isActive && tempsRestant && (
-                    <span className="flex items-center gap-1.5 text-blue-500 text-sm">
+                    <span className="flex items-center gap-1.5 text-primary-500 text-sm">
                       <Clock size={15} /> {tempsRestant}
                     </span>
                   )}
                   <span className="text-gray-400 text-sm">{enchere.nombreParticipants} participants</span>
                   <Link
                     to={`/produits/${enchere.produitId}`}
-                    className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium ml-auto"
+                    className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700 font-medium ml-auto"
                   >
                     Voir l'enchère <ArrowRight size={14} />
                   </Link>

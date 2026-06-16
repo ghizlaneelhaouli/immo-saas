@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Client } from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
+// @ts-ignore
+import SockJS from 'sockjs-client/dist/sockjs.js';
 
 export function useEnchereSocket(enchereId: number) {
   const [meilleureOffre, setMeilleureOffre] = useState<number | null>(null);

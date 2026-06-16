@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { TrendingUp } from 'lucide-react';
 
 interface Props {
@@ -46,7 +46,7 @@ export function OffreForm({ prixBase, meilleureOffre, onSubmit }: Props) {
             step="1"
             value={montant}
             onChange={(e) => setMontant(e.target.value)}
-            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 outline-none"
             placeholder={`Min. ${minimum.toLocaleString('fr-MA')} DH`}
           />
           <button

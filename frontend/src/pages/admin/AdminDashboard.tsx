@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+﻿import { useQuery } from '@tanstack/react-query';
 import { productApi } from '../../api/productApi';
 import { Link } from 'react-router-dom';
 import { Package, ShieldCheck, CheckSquare, ArrowRight, LayoutGrid } from 'lucide-react';
@@ -17,8 +17,8 @@ export function AdminDashboard() {
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-5xl mx-auto px-4 py-6 flex items-center gap-3">
-          <div className="p-2.5 bg-blue-100 rounded-xl">
-            <ShieldCheck className="text-blue-600" size={26} />
+          <div className="p-2.5 bg-primary-100 rounded-xl">
+            <ShieldCheck className="text-primary-600" size={26} />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-800">Administration</h1>
@@ -67,14 +67,14 @@ export function AdminDashboard() {
           <div className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-start justify-between mb-3">
               <p className="text-sm text-gray-500">Actions rapides</p>
-              <div className="p-2 bg-blue-50 rounded-lg">
-                <LayoutGrid className="text-blue-400" size={20} />
+              <div className="p-2 bg-primary-50 rounded-lg">
+                <LayoutGrid className="text-primary-400" size={20} />
               </div>
             </div>
             <div className="space-y-2.5">
               <Link
                 to="/admin/valider"
-                className="flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700"
+                className="flex items-center gap-1.5 text-sm text-primary-600 hover:text-primary-700"
               >
                 <ArrowRight size={13} /> Valider les produits
               </Link>

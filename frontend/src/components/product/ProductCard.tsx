@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Users, TrendingUp, Clock, ArrowRight } from 'lucide-react';
@@ -46,7 +46,7 @@ export function ProductCard({ produit }: Props) {
 
         {/* Content */}
         <div className="p-4">
-          <h3 className="font-semibold text-gray-800 truncate group-hover:text-blue-600 transition-colors">
+          <h3 className="font-semibold text-gray-800 truncate group-hover:text-primary-600 transition-colors">
             {produit.titre}
           </h3>
           <p className="text-gray-500 text-sm mt-1 line-clamp-2">{produit.description}</p>
@@ -68,11 +68,11 @@ export function ProductCard({ produit }: Props) {
 
           <div className="mt-3 flex items-center justify-between">
             {tempsRestant && (
-              <span className={`flex items-center gap-1 text-xs ${isActive ? 'text-blue-500' : 'text-gray-400'}`}>
+              <span className={`flex items-center gap-1 text-xs ${isActive ? 'text-primary-500' : 'text-gray-400'}`}>
                 <Clock size={11} /> {tempsRestant}
               </span>
             )}
-            <span className="flex items-center gap-1 text-xs text-blue-600 font-medium group-hover:gap-2 transition-all ml-auto">
+            <span className="flex items-center gap-1 text-xs text-primary-600 font-medium group-hover:gap-2 transition-all ml-auto">
               Voir <ArrowRight size={12} />
             </span>
           </div>

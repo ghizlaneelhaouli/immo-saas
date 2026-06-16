@@ -90,7 +90,10 @@ public class EnchereServiceImpl implements EnchereService {
 
         // Broadcast WebSocket : informe tous les clients abonnés
         messagingTemplate.convertAndSend("/topic/encheres/" + enchereId,
-                new EnchereDTO.OffreDTO(montant, offre.getDateOffre()));
+                EnchereDTO.OffreDTO.builder()
+                        .montant(montant)
+                        .dateOffre(offre.getDateOffre())
+                        .build());
 
         emailService.sendNouvelleOffreEmail(enchere, montant);
         log.info("Offre de {} DH placée par acheteur id={} sur enchère id={}", montant, acheteurId, enchereId);
