@@ -62,7 +62,7 @@ export function SoumettreProduct() {
   return (
     <div className="max-w-2xl mx-auto py-8 px-4">
       <h1 className="text-2xl font-bold text-gray-800 mb-2">Soumettre un produit</h1>
-      <p className="text-gray-500 mb-8">Soumettez votre bien immobilier pour le mettre aux enchères.</p>
+      <p className="text-gray-500 mb-8">Proposez un objet vintage aux enchères Fynd.</p>
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">

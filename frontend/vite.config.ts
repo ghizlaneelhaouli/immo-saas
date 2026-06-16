@@ -7,7 +7,14 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': 'http://localhost:8080',
+      '/uploads': 'http://localhost:8080',
       '/ws': { target: 'http://localhost:8080', ws: true },
     },
+  },
+  optimizeDeps: {
+    include: ['sockjs-client', '@stomp/stompjs'],
+  },
+  define: {
+    global: 'globalThis',
   },
 });

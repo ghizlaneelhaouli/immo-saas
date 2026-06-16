@@ -46,7 +46,7 @@ export function MesEncheres() {
               Parcourez le catalogue et inscrivez-vous à une enchère
             </p>
             <Link
-              to="/"
+              to="/catalogue"
               className="bg-primary-600 text-white px-6 py-2.5 rounded-xl hover:bg-primary-700 transition-colors text-sm font-medium"
             >
               Explorer le catalogue
